@@ -1,0 +1,111 @@
+<style type="text/css">
+    table {
+        border-collapse: collapse;
+    }
+    td{
+        padding:5 15px;
+        text-align: center;
+    }
+
+    tr.space_under>td {
+        padding-bottom: 25px;
+        border-bottom: none;
+    }
+
+    li{
+        display:table;
+        margin:0px auto 0px auto;
+    }
+</style>
+
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Card {{ idx }}</title>
+</head>
+
+<body>
+    <h3 style="text-align: center;">Incident Report № {{ idx }}</h3>
+    <table style="margin-left: auto; margin-right: auto;">
+      <tr>
+        <td><b>Начало аварии</b></td>
+        <td><b>Продолжительность</b></td>
+        <td><b>Конец аварии</b></td>
+      </tr>
+      <tr class="space_under">
+        <td>{{ dt_begin }}</td>
+        <td>{{ dt_duration }}</td>
+        <td>{{ dt_end }}</td>
+      </tr>
+
+      <tr>
+        <td><b>Сервис</b></td>
+        <td><b>Система</b></td>
+        <td><b>Проект</b></td>
+      </tr>
+      <tr class="space_under">
+        <td>{{ service_machine }}</td>
+        <td>{{ system }}</td>
+        <td>{{ project }}</td>
+      </tr>
+
+      <tr>
+        <td><b>Услуга</b></td>
+        <!-- <td></td> -->
+        <td><b>Описание аварии</b></td>
+      </tr>
+      <tr class="space_under">
+        <td>{{ service }}</td>
+        <!-- <td></td> -->
+        <td>{{ description }}</td>
+      </tr>
+
+      <tr>
+        <td><b>Плановые работы</b></td>
+        <!-- <td></td> -->
+        <td><b>Недоступность</b></td>
+      </tr>
+      <tr>
+        <td>{{ planned_works }}</td>
+        <!-- <td></td> -->
+        <td>{{ accessibility }}</td>
+      </tr>
+    </table>
+
+    <p style="text-align: center;"><b>Детали: </b>{{ details }}</p>
+
+    <table style="margin-left: auto; margin-right: auto;">
+      <tr>
+        <td><b>Затронуто</b></td>
+        <td><b>Обратились</b></td>
+        <td><b>Нарушен SLA</b></td>
+        <td><b>Компенсация</b></td>
+      </tr>
+      <tr>
+        <td>{{ number_inj }}<br>клиентов</td>
+        <td>{{ number_called }}<br>клиентов</td>
+        <td>{{ sla }}<br>клиентов</td>
+        <td>{{ compensation }}<br>рублей</td>
+      </tr>
+    </table>
+
+    <h3 style="text-align: center;">Customer Care</h3>
+    <hr>
+    <ul id="customers">
+         {% for idx, row in customers.iterrows() %}
+            {% if row['Статус'] ==  'Обратился' %}
+                <li><b> {{ row['Customer_care_user_id'] }} </b></li>
+            {% else %}
+                <li> {{ row['Customer_care_user_id'] }} </li>
+            {% endif %}
+         {% endfor %}
+    </ul>
+
+    <hr>
+
+</body>
+
+</html>
