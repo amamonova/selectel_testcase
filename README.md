@@ -10,7 +10,7 @@ creating the top by sorting)
 A data folder contains files with data. A templates folder contains `template.html` - html 
 markup for the incident card. 
 
-Also, I've added `card_14.html` file with [https://htmlpreview.github.io/?https://github.com/amamonova/selectel_testcase/blob/master/card_14.html](example).
+Also, I've added `card_14.html` file with [example](https://htmlpreview.github.io/?https://github.com/amamonova/selectel_testcase/blob/master/card_14.html).
 
 ## Getting Started
 
