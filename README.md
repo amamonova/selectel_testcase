@@ -1,5 +1,5 @@
 # Selectel test case
-This repository contains ETL-pipeline for creating html-file with incident card in specific format.
+This repository contains simple ETL-pipeline for creating html-file with incident card in specific format.
 
 The main script, `get_incident_card.py`:
 - merge two files with incident and revenue data
